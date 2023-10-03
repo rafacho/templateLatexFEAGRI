@@ -1,0 +1,224 @@
+\documentclass[12pt,oneside,hidelinks,a4paper,final]{book}
+	% Font size (10pt, 11pt, 12pt)
+	% Paper size and format (a4paper, letterpaper, etc.)
+	% Draft mode (draft) -
+	% Multiple columns (onecolumn, twocolumn)
+	% Formula-specific options
+		%fleqn -  left alignment of formulas
+		%leqno -  labels formulas on the left hand side instead of right
+	% Landscape print mode (landscape)
+	% Single and double sided documents (oneside, twoside)
+	% Titlepage behavior (notitlepage, titlepage)
+	% Chapter opening page (openright, openany) - Faz com que os capítulos comecem somente nas páginas da direita ou na próxima página disponível.
+
+
+% FONTES
+	% \usepackage{fontspec} % caracteres especiais para lualatex
+	\usepackage[T1]{fontenc}
+	\usepackage[utf8]{inputenc} %Permite a especificação das tabelas de caracteres ASCII, ISO Latin-1, ISO Latin-2, páginas de código 437/850 IBM, Apple Macintosh, Next, ANSI-Windows ou alguma tabela definida pelo usuário.
+	\usepackage{ae} %Seta as fontes
+	\usepackage{times} %Define tipo da fonte como "Times new roman"
+
+% LÍNGUA
+	\usepackage[portuguese,brazil]{babel} %Pacote de tradução	
+	% \usepackage[american]{babel} %Pacote de tradução
+
+% MARGENS 
+	\usepackage[top=30mm,left=30mm,right=20mm,bottom=20mm,marginparsep=0pt,marginparwidth=0pt,headsep=0pt,headheight=0pt,voffset = 0pt,hoffset = 0pt,marginparsep = 0pt]{geometry}
+	%\usepackage[paperwidth=8.5in,paperheight=11in,hmargin={30mm,25mm},vmargin={25mm,25mm}]{geometry} 
+	\setlength{\headheight}{15pt} % espaço para heading no topo da página 
+
+% Suprime a numeração da lista de tabelas e figuras
+	\usepackage{tocloft}
+
+% CITAÇÕES DIRETAS
+	\renewenvironment{quote}
+		{\small\list{}{\rightmargin=0cm \leftmargin=4cm}%
+		\item\relax}
+		{\endlist}
+
+
+% ORIENTAÇÃO
+	\usepackage{pdflscape} % Muda a orientação da página retrato / paisagem
+
+% PARÁGRAFOS/LINHAS
+	\usepackage[onehalfspacing]{setspace} % Libera a edição do espaçamento entre linhas
+						  % No corpo do texto usar:
+	    						% \singlespacing - Para um espaçamento simples
+	    						% \onehalfspacing - Para um espaçamento de 1,5
+	    						% \doublespacing - Para um espaçamento duplo
+	\usepackage{indentfirst} % Identa a primeira palavra do primeiro parágrafo da seção
+	\setlength{\parskip}{0cm} % espaço entre parágrafos
+	\setlength\parindent{2cm}	% primeira linha do parágrafo tem recuo de 2cm
+
+% Inclui numeração de seções em \susubsection e \paragraph
+	\setcounter{secnumdepth}{5} % Note that part is -1 level !
+	\setcounter{tocdepth}{5}
+	
+
+% CONTROLE DE LINHAS ORFÃS E VIUVAS
+	\clubpenalty=10000
+	\widowpenalty=10000
+
+% REFERÊNCIAS
+	% \usepackage{currfile-abspath}
+	% \usepackage[alf]{abntex2cite}
+	% \usepackage[comma]{natbib}
+		
+    \usepackage[style=abnt, justify]{biblatex}
+    	\addbibresource{bibliografia.bib}
+        \bibliography{bibliografia.bib}
+
+% CITAÇÃO
+	% \newcommand\posscite[1]{\citeauthor{#1}'s \citeyear{#1}} %para possessive citation em ingles
+	% \let\citep\cite
+ 								
+% OBJETOS
+	\usepackage{float}
+	\usepackage{amssymb, amsmath} % Pacotes matemáticos
+	\usepackage{fancyhdr,fancybox,epsfig,psfrag,tabularx}
+	
+
+% FIGURES
+	\usepackage{pgf}			% Habilita figuras em pgf
+	\usepackage{pgfplots}
+	\usepackage{graphicx}		% Habilita figuras
+	\graphicspath{{Figures/}}	% Define pasta onde estão as figuras
+
+	\usepgfplotslibrary{external}  % Compila as figuras separadamente
+
+
+	% pacote mais atual que o subfigure
+	\usepackage[%
+    font={small,sf},
+    labelfont=bf,
+    format=hang,    
+    format=plain,
+    margin=0pt,
+    width=0.8\textwidth,    
+	]{caption}
+	\usepackage[list=true]{subcaption}
+	% \usepackage[position=top]{subfig}
+
+
+
+% TABLES
+	\usepackage{longtable}          % pacote que quebra a tabela em mais de uma página
+	\usepackage{booktabs}        % for well-spaced horizontal rules
+	\usepackage{threeparttablex} 	% para colocar notas em longtable
+	\usepackage{multicol} % multicolunas
+	\usepackage{multirow} % multilinhas
+	\usepackage{hhline}
+
+% LINKS
+	\usepackage{hyperref}			% para ter hyperlink dos capítulos (deletar arquivos .AUX e rodar duas vezes)
+	% \usepackage[all]{hypcap}        % soluciona o problema com o hyperref e capitulos
+		\hypersetup{colorlinks=true,bookmarksnumbered,anchorcolor=black,citecolor=black,linkcolor=black,bookmarksopen=false,pdfstartview={FitV}} % links	em preto de referencia cruzadas e da bibliografia; também faz que o pdf seja aberto com a aba das seções e que ocupe a pagina inteira
+
+	\usepackage{bookmark} 	% This package implements a new bookmark (outline) organization for package hyperref.
+
+
+%FOOTNOTES
+	\usepackage[hang,flushmargin]{footmisc} 	% para não haver espaçamento antes das notas de rodapé
+
+
+% VISUAL DO PDF
+	\usepackage{microtype}  % melhora a visualização do texto (faz que os espaçamentos do texto seja mais homogeneo).
+
+% NUMERAÇÃO DE PÁGINAS
+	% para colocar número de páginas em cima à direita
+	\pagestyle{fancy}
+		\fancyhf{}
+		\fancyheadoffset{0cm}
+		\renewcommand{\headrulewidth}{0pt} 
+		\renewcommand{\footrulewidth}{0pt}
+		\fancyhead[R]{\thepage}
+		\fancypagestyle{plain}{%
+		  \fancyhf{}%		
+		  \fancyhead[R]{\thepage}%
+		}
+
+% OPÇÕES PARA FORMATO BOOK
+	%\usepackage[Lenny]{fncychap} % coloca um quadrado ao redor do "capítulo 1"	
+	% \setlength{\headheight}{15pt}
+
+% CORES
+	\usepackage[color]{showkeys}
+	\definecolor{refkey}{rgb}{0.39,0.58,1}
+	\definecolor{labeled}{rgb}{1,0,0}
+
+% Flow images
+	\usepackage{tikz}
+	% \tikzexternalize	
+	\usetikzlibrary{shapes,arrows}
+	% \usetikzlibrary{snakes}
+	\usetikzlibrary{calc}
+	\tikzset{
+	  -|-/.style={
+	    to path={
+	      (\tikztostart) -| ($(\tikztostart)!#1!(\tikztotarget)$) |- (\tikztotarget)
+	      \tikztonodes}
+	  },
+	  -|-/.default=0.5,
+	  |-|/.style={
+	    to path={
+	      (\tikztostart) |- ($(\tikztostart)!#1!(\tikztotarget)$) -| (\tikztotarget)
+	      \tikztonodes}
+	  },
+	  |-|/.default=0.5,
+	}
+	\tikzset{
+	    charge node/.style={inner sep=0pt},
+	    pics/sum block/.style n args={4}{
+	      code={
+	        \path node (n) [draw, circle, inner sep=0pt, minimum size=9mm] {}
+	          (n.north) +(0,-1.5mm) node [charge node] {$#1$}
+	          (n.south) +(0,1.5mm) node [charge node] {$#2$}
+	          (n.west) +(1.5mm,0) node [charge node] {$#3$}
+	          (n.east) +(-1.5mm,0) node [charge node] {$#4$}
+	          ;}}}\usetikzlibrary{tikzmark,calc}
+\usepackage{ifthen}
+\usepackage{helvet,verbatim}
+
+% plots in latex
+	\usepackage{pgfplots}
+  		\pgfplotsset{compat=1.3}
+
+
+% to include pdf pages
+	\usepackage{pdfpages}
+
+% to prevent figures for appearing before the section wherein they are declared
+	\usepackage[section]{placeins}
+
+% This package provides user control over the layout of the three basic list environments: enumerate, itemize and description
+	\usepackage{enumitem}
+
+% This package allows to format code
+% For config information access https://github.com/gpoore/minted/blob/master/source/minted.pdf
+	% \usepackage{minted}
+	% Set the options for the document as a whole
+	% \definecolor{bg}{rgb}{0.95, 0.95, 0.95} % Code background color
+	% \setminted[xml]{linenos, 
+	% 				bgcolor=bg,
+	% 				autogobble, 
+	% 				% gobble=5, 
+	% 				samepage, 
+	% 				tabsize=2,					 
+	% 				breaklines,
+	% 				breakautoindent,
+	% 				breakanywhere,
+	% 				bgcolor=bg,
+	% 				}
+
+	\usepackage{csquotes}
+
+	% \usepackage[some]{background} % insere marca d'água na página
+	% \SetBgScale{6}
+	% \SetBgColor{gray}
+	% \SetBgOpacity{0.1}
+	% \backgroundsetup{contents=\includegraphics{Apresentacao/image/capa/feagri.png}}
+	% \SetBgAngle{0}
+
+	\usepackage{epigraph}	% Formata epígrafe
+	

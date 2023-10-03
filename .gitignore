@@ -1,0 +1,16 @@
+settings.aux
+settings.fdb_latexmk
+settings.fls
+settings.log
+
+tese_template.aux
+tese_template.bbl
+tese_template.bcf
+tese_template.blg
+tese_template.lof
+tese_template.log
+tese_template.lot
+tese_template.run.xml
+tese_template.tex.bbl
+tese_template.tex.blg
+tese_template.toc

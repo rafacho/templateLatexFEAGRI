@@ -1,0 +1,121 @@
+\input{settings}
+
+\begin{document} %Início do documento
+	\pagenumbering{gobble}
+	\input{Capa/capa}
+	
+	% \includepdf[pages=-]{Pre-textuais/fichaCatalografica.pdf}
+
+	\newpage
+
+	\input{Pre-textuais/folhaAprovacao}
+
+	\newpage
+
+	\input{Pre-textuais/epigrafe}
+
+	\chapter*{Agradecimentos}
+	\input{Pre-textuais/agradecimentos}
+
+	% INSERIR RESUMO
+	\chapter*{Resumo}%
+	% \addcontentsline{toc}{chapter}{Resumo}%
+	\input{Pre-textuais/Resumo}
+	\thispagestyle{empty}
+	\newpage
+
+	\chapter*{Abstract}%
+	% \addcontentsline{toc}{chapter}{Abstract}%
+	\input{Pre-textuais/Abstract}
+	\thispagestyle{empty}
+	\newpage
+
+
+	%=============================== lista de tabelas e figuras ==========================
+	\tocloftpagestyle{empty}
+	% \addcontentsline{toc}{chapter}{Lista de Figuras}
+	\listoffigures 	
+	\newpage
+
+	% \addcontentsline{toc}{chapter}{Lista de Tabelas}
+	\listoftables 
+	\thispagestyle{empty}
+	\newpage
+
+	%============================ acrônimos, símbolos e notações ========================
+	\chapter*{Lista de Símbolos e Notações}
+	% \addcontentsline{toc}{chapter}{Lista de Símbolos e Notações}
+	\input{Pre-textuais/list_variables}
+	\thispagestyle{empty}
+	\newpage
+
+	%=============================== sumário =============================================
+	% \thispagestyle{empty}
+	% \addtocontents{toc}{\protect\thispagestyle{empty}}
+	\tableofcontents 
+	\thispagestyle{empty}
+	\newpage
+
+	\pagenumbering{arabic}
+
+	\pagestyle{plain} % Define o estilo da página
+					  %	Plain - imprime os números das páginas no fim da página, no centro do rodapé.
+	
+	%========================= Files ===========================================
+	\setcounter{page}{18}  % Considera a contagem de paginas desde o inicio -> MODIFICAR QUANDO FECHAR O TEXTO
+
+
+	\phantomsection % resolve o bug provocado pelo pacote hyperref que faz errar a numeração de página
+	\addcontentsline{toc}{chapter}{Introdução}
+	\markboth{Introdução}{Introdução}
+	\chapter*{Introdução}
+		\input{Capitulo1-IntroducaoGeral/introducao}
+		\input{Capitulo1-IntroducaoGeral/escopo}
+		\input{Capitulo1-IntroducaoGeral/hipotese}
+		% \newpage
+		\input{Capitulo1-IntroducaoGeral/objetivos}
+		% \input{Capitulo1-IntroducaoGeral/OrganizacaoDaTese}
+
+	\setcounter{chapter}{0}
+	\chapter{Título do seu capítulo\label{ch-cap2}}
+
+		\input{Capitulo2/texto}
+
+
+	\chapter{Título do seu capítulo\label{ch-cap3}}
+		\input{Capitulo3/1-Introducao}
+		\input{Capitulo3/2-Objetivos}
+		\input{Capitulo3/3-texto}
+		\input{Capitulo3/4-Conclusao}
+
+	% \chapter{Controle de estabilidade de um veículo agrícola \label{ch-controle}}
+	% 	\input{Capitulo-Controle/1-Introducao}
+	% 	\input{Capitulo-Controle/2-Objetivos}
+	% 	\input{Capitulo-Controle/3-Modelagem}
+	% 	\input{Capitulo-Controle/4-Controle}
+	% 	\input{Capitulo-Controle/5-Simulacao}
+	% 	\input{Capitulo-Controle/6-Resultados}	
+	% 	\input{Capitulo-Controle/7-Conclusao}
+	
+	\addcontentsline{toc}{chapter}{Conclusão}
+	\markboth{Conclusão}{Conclusão}
+	\chapter*{Conclusão \label{ch-conclusaoGeral}}	
+		\input{Capitulo5-ConclusaoGeral/conclusaoGeral}
+
+
+	%%%% BIBLIOGRAFIA:
+	\newpage
+	\phantomsection % resolve o bug provocado pelo pacote hyperref que faz errar a numeração de página
+	\addcontentsline{toc}{chapter}{Bibliografia}
+	\markboth{Bibliografia}{Bibliografia}
+	% \bibliographystyle{abnt-alf}
+	% \bibliographystyle{ecta}
+	% \bibliography{bibliografia}
+
+	\printbibliography
+
+	%%%% ANEXOS: 		
+		
+	% \input{Anexos}
+
+\end{document}
